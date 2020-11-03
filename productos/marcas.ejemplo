@@ -1,0 +1,64 @@
+<?php
+$title = 'LA TIENDA - PRODUCTOS';
+require_once('../inc/header.php');
+include("../funcion/classCategoria.php");
+include("../funcion/classProducto.php");
+include("../funcion/classMarca.php");
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Document</title>
+</head>
+<body>
+	
+	
+<section style="margin: 3em 2em 5em">					
+								<td>
+								  <div class="content">
+									<div class="row">
+	
+									<?php
+									$producto = new sqlProducto($con);
+									foreach($producto->getProductosPorMarca() as $row){?>
+									<div class='col-3' style="margin-top: 2em"><?php echo $row['Nombre'];?><br>
+										$ <?php echo $row['Precio'];?><br>
+										<img src="images/<?php echo $row['Nombre'];?>.jpg"/>
+										<br><?php echo $row['Imagen'];?>
+									</div>
+									<?php }; ?>
+									</div>
+								  </div>  
+								</td>
+							</div>
+					</div>
+</section>
+	
+
+
+
+
+
+
+
+	<!-- Footer -->
+	<?php include('../inc/footer.php'); ?>
+		<!-- Scripts -->
+		
+	
+    
+
+			<script src="/latienda/assets/js/jquery.min.js"></script>	
+			<script src="/latienda/assets/js/popper.min.js"></script>	
+			<script src="/latienda/assets/js/bootstrap.min.js"></script>
+			<script src="/latienda/assets/js/browser.min.js"></script>
+			<script src="/latienda/assets/js/breakpoints.min.js"></script>
+			<script src="/latienda/assets/js/util.js"></script>
+			<script src="/latienda/assets/js/main.js"></script>
+			
+	</body>
+</html>
